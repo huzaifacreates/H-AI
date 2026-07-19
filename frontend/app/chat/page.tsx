@@ -24,6 +24,9 @@ function HLogo({ size = 32 }: { size?: number }) {
   );
 }
 
+// API URL: set NEXT_PUBLIC_API_URL env var for production (e.g. "/api/backend"), falls back to localhost for dev
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
 export default function ChatPage() {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState<{ from: "user" | "bot"; text: string }[]>([]);
@@ -78,7 +81,7 @@ export default function ChatPage() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/chat", {
+      const res = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: msg }),
