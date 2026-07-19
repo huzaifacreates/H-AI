@@ -19,6 +19,15 @@ app.add_middleware(
 )
 
 
+# middleware to strip /api/backend prefix when deployed on Vercel (Vercel forwards the full path)
+@app.middleware("http")
+async def strip_vercel_prefix(request: Request, call_next):
+    prefix = "/api/backend"
+    if request.url.path.startswith(prefix):
+        request.scope["path"] = request.url.path[len(prefix):] or "/"
+        request.scope["root_path"] = prefix
+    return await call_next(request)
+
 # middleware to log every incoming request with timing
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
