@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *)); /* enables class-based dark mode toggle */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* smooth scroll for the chat area */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* floating animation for hero elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+/* gradient shift animation for premium backgrounds */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* fade in + slide up for chat messages and page elements */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* slow pulse for status indicators */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* staggered delay helpers */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ─── custom text selection highlight ─── */
+::selection {
+  background-color: #9333ea; /* purple-600 */
+  color: #ffffff;
+}
+.dark ::selection {
+  background-color: #a855f7; /* purple-500 */
+  color: #ffffff;
+}
+
+/* ─── custom scrollbar (WebKit) ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db; /* gray-300 in light mode */
+  border-radius: 999px;
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af; /* gray-400 */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #4b5563; /* gray-600 in dark mode */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280; /* gray-500 */
+}
+
+/* ─── custom scrollbar (Firefox) ─── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.dark * {
+  scrollbar-color: #4b5563 transparent;
+}
