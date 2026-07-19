@@ -179,7 +179,7 @@ export default function ChatPage() {
                     {msg.text}
                   </div>
                 ) : (
-                  <div className="max-w-[75%] px-4 py-2.5 leading-relaxed bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 text-gray-900 dark:text-gray-200 rounded-2xl rounded-bl-md text-sm [&_p]:mb-2 [&_p:last-child]:mb-0 [&_code]:bg-gray-200 dark:bg-white/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs [&_pre]:bg-gray-200 dark:bg-white/5 [&_pre]:p-3 [&_pre]:rounded-xl [&_pre]:text-xs [&_pre]:overflow-x-auto [&_ul]:list-disc [&_ul]:pl-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_a]:text-purple-600 dark:text-purple-400 [&_a]:underline">
+                  <div className="max-w-[75%] px-4 py-2.5 leading-relaxed bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 text-gray-900 dark:text-white rounded-2xl rounded-bl-md text-sm [&_p]:mb-2 [&_p:last-child]:mb-0 [&_code]:bg-gray-200 dark:bg-white/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs [&_pre]:bg-gray-200 dark:bg-white/5 [&_pre]:p-3 [&_pre]:rounded-xl [&_pre]:text-xs [&_pre]:overflow-x-auto [&_ul]:list-disc [&_ul]:pl-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_a]:text-purple-600 dark:[&_a]:text-purple-400 [&_a]:underline">
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
                       {msg.text}
                     </ReactMarkdown>
